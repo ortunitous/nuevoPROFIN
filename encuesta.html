@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Evaluación del Profesor | Universidad</title>
+    <meta name="description" content="Completa la encuesta de evaluación del profesor para ofrecer tu retroalimentación sobre el desempeño docente en la universidad.">
+    <meta name="keywords" content="encuesta, evaluación, profesor, universidad, feedback, estudiantes">
+    <meta name="author" content="Universidad XYZ">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e08c0d; /* Fondo de color naranja */
+            margin: 0;
+            padding: 0;
+            background-image: url('imagenes/fondoooo.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+            border-radius: 10px;
+            border: 2px solid #067936; /* Borde verde */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #067936; /* Título de color verde */
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #149e37;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #e08c0d; /* Borde naranja */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group input[type="submit"] {
+            background-color: #067936; /* Botón de color verde */
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #055a2d;
+        }
+        .header, .instructions {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .instructions p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #000000;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-button {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #067936; /* Color verde */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #045d29; /* Color verde más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>BIENVENIDO A LA SECCIÓN DE EVALUACIONES A PROFESORES</h1>
+    </div>
+    <div class="instructions">
+        <p>
+            En esta sección de la página encontrarás la manera adecuada de evaluar a los profesores que imparten clases dentro de la universidad.
+        </p>
+    </div>
+    <div class="container">
+        <h1>Encuesta de Evaluación del Profesor</h1>
+        <!-- Aquí se ha configurado el formulario para enviar datos mediante POST -->
+        <form id="formulario" action="guardar_encuesta.php" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre del estudiante:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Institucional:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="profesor">Nombre del profesor:</label>
+                <select id="profesor" name="profesor" required onchange="actualizarMateria()">
+                    <option value="alfonso_naranjo">Alfonso Naranjo</option>
+                    <option value="victor_hernandez">Victor Hernandez</option>
+                    <option value="yarely_garcia">Yarely Garcia</option>
+                    <option value="edgar_bustos">Edgar Bustos</option>
+                    <option value="maria_chaney">Maria Chaney</option>
+                    <option value="jose_vicente">Jose Vicente</option>
+                    <option value="rodrigo_jimenez">Rodrigo Jimenez</option>
+                    <option value="rolando_munguia">Rolando Munguia</option>
+                    <option value="neftali_valencia">Neftali Valencia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="materia">Materia:</label>
+                <input type="text" id="materia" name="materia" required>
+            </div>
+            <div class="form-group">
+                <label for="calificacion">Calificación del profesor (1-5):</label>
+                <select id="calificacion" name="calificacion" required>
+                    <option value="1">1 - Muy insatisfecho</option>
+                    <option value="2">2 - Insatisfecho</option>
+                    <option value="3">3 - Neutral</option>
+                    <option value="4">4 - Satisfecho</option>
+                    <option value="5">5 - Muy satisfecho</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comentarios">Comentarios adicionales:</label>
+                <textarea id="comentarios" name="comentarios" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+    <div class="button-container">
+        <a href="noticias.html" class="nav-button">Página Anterior</a>
+        <a href="index.html" class="nav-button">Página Principal</a>
+        <a href="eventos.html" class="nav-button">Página Siguiente</a>
+    </div>
+    <script>
+        function actualizarMateria() {
+            const profesorMateria = {
+                "alfonso_naranjo": "Tutoria",
+                "rodrigo_jimenez": "Formacion Sociocultural",
+                "yarely_garcia": "Calculo Diferencial",
+                "victor_hernandez": "Diseño Digital",
+                "edgar_bustos": "Inglés",
+                "maria_chaney": "Inglés",
+                "jose_vicente": "Aplicaciones Web",
+                "rolando_munguia": "Marketing Digital",
+                "neftali_valencia": "Sistemas Operativos"
+            };
+            const profesorSelect = document.getElementById('profesor');
+            const materiaInput = document.getElementById('materia');
+            const selectedProfesor = profesorSelect.value;
+            materiaInput.value = profesorMateria[selectedProfesor] || '';
+        }
+    </script>
+</body>
+</html>

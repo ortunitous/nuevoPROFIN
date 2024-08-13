@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORAPTORS</title>
+    <meta name="description" content="INFORAPTORS ofrece información sobre deportes, noticias, profesores, eventos, salud y bienestar, y curiosidades de la universidad. Explora nuestras secciones para obtener más detalles.">
+    <meta name="keywords" content="INFORAPTORS, deportes, noticias, profesores, eventos, salud, bienestar, curiosidades, universidad">
+    <meta name="author" content="INFORAPTORS">
+    <style>
+        /* Fondo con imagen */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('imagenes/fondoooo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            margin: 0 10px;
+            height: 100px; /* Aumentado desde 50px a 100px */
+        }
+        h1 {
+            text-align: center;
+            color: rgb(0, 0, 0); /* Cambiado a negro */
+            width: 100%;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .seccion {
+            margin: 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            border: 2px solid green; /* Borde verde */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 50%; /* Hacer los rectángulos más cortos */
+        }
+        .seccion img {
+            margin-left: 20px;
+            height: 100px; /* Ajusta el tamaño de los GIFs según sea necesario */
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .navbar input[type="search"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 50%;
+            max-width: 400px;
+        }
+        .navbar button {
+            padding: 5px 15px;
+            font-size: 16px;
+            background-color: #067936; /* Color verde */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .navbar button:hover {
+            background-color: #045d29; /* Color verde más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imagenes/logoutmir.png" alt="Logo 1" class="logo">
+        <img src="imagenes/raptor logo.jpg" alt="Logo 2" class="logo">
+    </header>
+    <h1>INFORAPTORS</h1>
+
+    <!-- Barra de Navegación -->
+    <div class="navbar">
+        <form action="#" method="get" onsubmit="return handleSearch()">
+            <input type="search" id="search-input" name="query" placeholder="Buscar en secciones..." aria-label="Buscar en secciones">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div id="deportes" class="seccion">
+            <div>
+                <h2>DEPORTES</h2>
+                <p>¡Visita nuestra página de deportes para más información!</p>
+                <a href="deportes.html">Ir a la sección de deportes</a>
+            </div>
+            <img src="imagenes/futbol.gif" alt="Gift 1">
+        </div>
+        <div id="noticias" class="seccion">
+            <div>
+                <h2>NOTICIAS</h2>
+                <p>Aquí se encuentran la mayoría de anuncios y noticias por parte de la universidad.</p>
+                <a href="noticias.html">Ir a la sección de noticias</a>
+            </div>
+            <img src="imagenes/PND8.gif" alt="Gift 2">
+        </div>
+        <div id="profesores" class="seccion">
+            <div>
+                <h2>PROFESORES, ACERCA DE Y EVALUACIONES</h2>
+                <p>Aquí se encontrará información necesaria de cada profesor, así como evaluaciones mensuales.</p>
+                <a href="encuesta.html">Ir a la sección de profesores y evaluaciones</a>
+            </div>
+            <img src="imagenes/calif.gif" alt="Gift 3">
+        </div>
+        <div id="eventos" class="seccion">
+            <div>
+                <h2>FECHAS DE EVENTOS</h2>
+                <p>En esta sección se encontrará la información acerca de los próximos eventos, así como el calendario escolar.</p>
+                <a href="eventos.html">Ir a la sección de fechas de eventos</a>
+            </div>
+            <img src="imagenes/fechas.gif" alt="Gift 4">
+        </div>
+        <div id="salud" class="seccion">
+            <div>
+                <h2>SALUD & BIENESTAR</h2>
+                <p>Aquí encontrarás información oportuna y valiosa acerca de temas que interesan mucho o de gran ayuda para los jóvenes en la universidad.</p>
+                <a href="salud y bienestar.html">Ir a la sección de salud y bienestar</a>
+            </div>
+            <img src="imagenes/te-encuentras-bien-bugs-bunny.gif" alt="Gift 5">
+        </div>
+        <div id="curiosidades" class="seccion">
+            <div>
+                <h2>CURIOSIDADES</h2>
+                <p>Aquí encontrarás datos interesantes, así como comentarios y sugerencias sobre la universidad.</p>
+                <a href="curiosidaes.html">Ir a la sección de curiosidades</a>
+            </div>
+            <img src="imagenes/considered-curiosity.gif" alt="Gift 6">
+        </div>
+    </div>
+
+    <script>
+        function handleSearch() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const sections = {
+                'deportes': 'deportes.html',
+                'noticias': 'noticias.html',
+                'profesores': 'profesores.html',
+                'eventos': 'eventos.html',
+                'salud': 'salud y bienestar.html',
+                'curiosidades': 'curiosidaes.html'
+            };
+            const url = sections[query] || 'search.html'; // 'search.html' is a placeholder for no match
+
+            window.location.href = url;
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
